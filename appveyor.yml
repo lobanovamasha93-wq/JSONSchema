@@ -1,18 +1,19 @@
 image: Visual Studio 2022
 
 install:
-  - cmd: SET JAVA_HOME=C:\Program Files\Java\jdk11
-  - cmd: SET PATH=%JAVA_HOME%\bin;%PATH%
+  # Проверяем, какая версия Java 11 доступна на этом образе, и задаем путь к ней
+  - cmd: set JAVA_HOME=C:\Program Files\Java\jdk11
+  # Если путь выше не сработает (в разных версиях образов бывает по-разному), 
+  # AppVeyor сам переключит стек, если мы добавим это:
+  - stack: jdk 11
 
 environment:
   JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8"
 
-# Кэш, чтобы билд не шел по 10 минут
 cache:
   - C:\Users\appveyor\.gradle\caches
   - C:\Users\appveyor\.gradle\wrapper
 
 build_script:
   - gradlew.bat clean test --info
-  - java -jar ./artifacts/app-order.jar &
   - chmod +x gradlew
