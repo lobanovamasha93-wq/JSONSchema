@@ -1,14 +1,18 @@
 image: Visual Studio 2022
 
-stack: jdk 17 
+install:
+  - cmd: SET JAVA_HOME=C:\Program Files\Java\jdk11
+  - cmd: SET PATH=%JAVA_HOME%\bin;%PATH%
 
 environment:
   JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8"
 
+# Кэш, чтобы билд не шел по 10 минут
 cache:
   - C:\Users\appveyor\.gradle\caches
   - C:\Users\appveyor\.gradle\wrapper
 
 build_script:
   - gradlew.bat clean test --info
+  - java -jar ./artifacts/app-order.jar &
   - chmod +x gradlew
