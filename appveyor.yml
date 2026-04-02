@@ -1,0 +1,9 @@
+image: Visual Studio 2022
+
+stack: jdk 11 
+
+environment:
+  JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8"
+
+build_script:
+  - gradlew.bat clean test --info
