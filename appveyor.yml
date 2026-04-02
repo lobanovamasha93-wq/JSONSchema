@@ -1,5 +1,0 @@
-image: Ubuntu2204
-
-build_script:
-  - chmod +x gradlew
-  - ./gradlew clean test

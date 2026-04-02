@@ -15,6 +15,6 @@ public class SchemaTest {
                 .get("/api/v1/demo/accounts")
                 .then()
                 .statusCode(200)
-                .body(matchesJsonSchemaInClasspath("accounts.schema.json"));
+                .body("data", equalTo ("fail data"));
     }
 }
