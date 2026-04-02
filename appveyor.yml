@@ -1,8 +1,5 @@
-image: Visual Studio 2022
-
-# Указываем кодировку UTF-8, чтобы логи тестов на русском (если есть) читались корректно
-environment:
-  JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8"
+image: Ubuntu2204
 
 build_script:
-  - gradlew.bat clean test
+  - chmod +x gradlew
+  - ./gradlew clean test
