@@ -11,3 +11,4 @@ cache:
 
 build_script:
   - gradlew.bat clean test --info
+  - chmod +x gradlew
