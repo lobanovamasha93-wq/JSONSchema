@@ -1,9 +1,13 @@
 image: Visual Studio 2022
 
-stack: jdk 11 
+stack: jdk 17 
 
 environment:
   JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8"
+
+cache:
+  - C:\Users\appveyor\.gradle\caches
+  - C:\Users\appveyor\.gradle\wrapper
 
 build_script:
   - gradlew.bat clean test --info
