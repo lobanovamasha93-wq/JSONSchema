@@ -1,19 +1,17 @@
-image: Visual Studio 2022
+image: Ubuntu2004
+
+stack: jdk 11  
+branches:
+  only:
+    - main
+
+build: off  
 
 install:
-  # Проверяем, какая версия Java 11 доступна на этом образе, и задаем путь к ней
-  - cmd: set JAVA_HOME=C:\Program Files\Java\jdk11
-  # Если путь выше не сработает (в разных версиях образов бывает по-разному), 
-  # AppVeyor сам переключит стек, если мы добавим это:
-  - stack: jdk 11
-
-environment:
-  JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8"
-
-cache:
-  - C:\Users\appveyor\.gradle\caches
-  - C:\Users\appveyor\.gradle\wrapper
+  
+  - java -jar ./artifacts/app-mbank.jar &
+  - chmod +x gradlew
 
 build_script:
-  - gradlew.bat clean test --info
-  - chmod +x gradlew
+ 
+  - ./gradlew test --info
