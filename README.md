@@ -1,1 +1,1 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/iocemai6gkohn5r8?svg=true)](https://ci.appveyor.com/project/lobanovamasha93-wq/jsonschema)
+[![Java CI with Gradle](https://github.com/lobanovamasha93-wq/JSONSchema/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/lobanovamasha93-wq/JSONSchema/actions/workflows/gradle.yml)
